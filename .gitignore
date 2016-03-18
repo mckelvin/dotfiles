@@ -1,7 +1,7 @@
-.vundle
 .netrwhist
 xmonad-x86_64-linux
 xmonad.errors
 xmonad.hi
 xmonad.o
-.vim/bundle
+.vim/bundle/
+!.vim/bundle/Vundle.vim/

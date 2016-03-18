@@ -1,15 +1,9 @@
-"""
-" vundle settings
-"""
-set nocompatible               " be iMproved
-filetype off                   " required!
+set nocompatible
+filetype off
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.Vim/
 call vundle#rc()
 
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
 Bundle 'tomasr/molokai'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
@@ -40,9 +34,9 @@ Bundle 'vim-scripts/a.vim'
 Bundle "lepture/vim-jinja"
 Bundle 'pangloss/vim-javascript'
 
-"Bundle ''
+call vundle#end()
+filetype plugin indent on
 
-filetype plugin indent on     " required!
 
 """
 " common
