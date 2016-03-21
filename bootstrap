@@ -1,0 +1,30 @@
+#!/bin/sh
+set -e
+set -x
+
+DOTFILES_DIR=`dirname $0`
+pushd $DOTFILES_DIR
+DOTFILES_DIR=$(pwd)
+popd
+INST_VIM_DIR=~/.vim
+INST_VIMRC=~/.vimrc
+INST_TMUX_DIR=~/.tmux
+INST_TMUX_CONF=~/.tmux.conf
+
+if [[ ! -e $INST_VIM_DIR ]]; then
+    ln -s $DOTFILES_DIR/.vim $INST_VIM_DIR
+fi
+
+if [[ ! -e $INST_VIMRC ]]; then
+    ln -s $INST_VIM_DIR/.vimrc $INST_VIMRC
+fi
+
+if [[ ! -e $INST_TMUX_DIR ]]; then
+    ln -s $DOTFILES_DIR/.tmux $INST_TMUX_DIR
+fi
+
+if [[ ! -e $INST_TMUX_CONF ]]; then
+    ln -s $INST_TMUX_DIR/.tmux.conf $INST_TMUX_CONF
+fi
+
+vim +PluginInstall +qall

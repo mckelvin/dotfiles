@@ -5,3 +5,4 @@ xmonad.hi
 xmonad.o
 .vim/bundle/
 !.vim/bundle/Vundle.vim/
+*.sw[op]

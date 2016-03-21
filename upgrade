@@ -1,0 +1,13 @@
+#!/bin/sh
+set -e
+set -x
+
+git subtree pull \
+    --prefix .vim/bundle/Vundle.vim \
+    https://github.com/VundleVim/Vundle.vim.git master --squash
+
+git subtree pull \
+    --prefix .tmux \
+    https://github.com/tony/tmux-config.git master --squash
+
+vim +PluginUpdate +qall
