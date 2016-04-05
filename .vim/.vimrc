@@ -4,35 +4,35 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
 
-Bundle 'tomasr/molokai'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'majutsushi/tagbar'
-Bundle 'Raimondi/delimitMate'
+Plugin 'tomasr/molokai'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'majutsushi/tagbar'
+Plugin 'Raimondi/delimitMate'
 
 "snipmate.vim
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "honza/vim-snippets"
-Bundle 'garbas/vim-snipmate'
-Bundle 'editorconfig/editorconfig-vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'editorconfig/editorconfig-vim'
 
-Bundle 'ervandew/supertab'
-"Bundle 'spolu/dwm.vim'
-Bundle 'xuhdev/SingleCompile'
-Bundle 'davidhalter/jedi-vim'
-Bundle 'Rip-Rip/clang_complete'
+Plugin 'ervandew/supertab'
+"Plugin 'spolu/dwm.vim'
+Plugin 'xuhdev/SingleCompile'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'Rip-Rip/clang_complete'
 
-Bundle 'airblade/vim-gitgutter'
-Bundle 'scrooloose/syntastic'
-Bundle 'vim-scripts/google.vim'
-Bundle 'drmikehenry/vim-headerguard'
-Bundle 'derekwyatt/vim-scala'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'scrooloose/syntastic'
+Plugin 'vim-scripts/google.vim'
+Plugin 'drmikehenry/vim-headerguard'
+Plugin 'derekwyatt/vim-scala'
 
-Bundle 'vim-scripts/Python-Syntax-Folding'
-Bundle 'kien/ctrlp.vim'
-Bundle 'vim-scripts/a.vim'
+Plugin 'vim-scripts/Python-Syntax-Folding'
+Plugin 'kien/ctrlp.vim'
+Plugin 'vim-scripts/a.vim'
 Bundle "lepture/vim-jinja"
-Bundle 'pangloss/vim-javascript'
+Plugin 'pangloss/vim-javascript'
 
 call vundle#end()
 filetype plugin indent on
