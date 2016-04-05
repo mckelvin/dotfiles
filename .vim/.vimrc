@@ -33,6 +33,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'vim-scripts/a.vim'
 Bundle "lepture/vim-jinja"
 Plugin 'pangloss/vim-javascript'
+Plugin 'davidzchen/vim-bazel'
 
 call vundle#end()
 filetype plugin indent on
