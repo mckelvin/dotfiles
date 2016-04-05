@@ -8,6 +8,7 @@ DOTFILES_DIR=$(pwd)
 popd
 INST_VIM_DIR=~/.vim
 INST_VIMRC=~/.vimrc
+INST_ZSHRC=~/.zshrc
 INST_TMUX_DIR=~/.tmux
 INST_TMUX_CONF=~/.tmux.conf
 
@@ -28,3 +29,19 @@ if [[ ! -e $INST_TMUX_CONF ]]; then
 fi
 
 vim +PluginInstall +qall
+
+CURR_SHELL=$SHELL
+ZSH_PATH=`which zsh`
+if [[ "$?" -eq "0" ]]; then
+    if [[ ! -d ~/.oh-my-zsh ]]; then
+        git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+    fi
+
+    if [[ ! -e $INST_ZSHRC ]]; then
+        ln -s $DOTFILES_DIR/.zshrc $INST_ZSHRC
+    fi
+
+    if [[ ! "${CURR_SHELL#-}" = "$ZSH_PATH" ]]; then
+        chsh -s "$ZSH_PATH"
+    fi
+fi
