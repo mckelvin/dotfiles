@@ -10,4 +10,8 @@ git subtree pull \
     --prefix .tmux \
     https://github.com/tony/tmux-config.git master --squash
 
+git subtree pull \
+    --prefix .tmux/vendor/tmux-mem-cpu-load \
+    https://github.com/thewtex/tmux-mem-cpu-load.git master --squash
+
 vim +PluginUpdate +qall
