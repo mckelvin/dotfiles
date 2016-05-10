@@ -35,6 +35,9 @@ Bundle "lepture/vim-jinja"
 Plugin 'pangloss/vim-javascript'
 Plugin 'davidzchen/vim-bazel'
 
+Plugin 'elixir-lang/vim-elixir'
+
+
 call vundle#end()
 filetype plugin indent on
 
