@@ -37,6 +37,7 @@ Plugin 'davidzchen/vim-bazel'
 
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'fatih/vim-go'
+Plugin 'chase/vim-ansible-yaml'
 
 call vundle#end()
 filetype plugin indent on
@@ -92,7 +93,6 @@ autocmd FileType css setlocal shiftwidth=2 tabstop=2
 autocmd FileType javascript setlocal smartindent ts=2 sw=2
 autocmd FileType html setlocal sw=2 ts=2
 autocmd FileType jinja setlocal sw=2 ts=2
-autocmd FileType yaml setlocal sw=2 ts=2
 """
 " colorscheme
 """
