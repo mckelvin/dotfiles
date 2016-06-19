@@ -3,28 +3,28 @@ set -e
 set -x
 
 DOTFILES_DIR=`dirname $0`
-pushd $DOTFILES_DIR
+cd $DOTFILES_DIR
 DOTFILES_DIR=$(pwd)
-popd
+cd -
 INST_VIM_DIR=~/.vim
 INST_VIMRC=~/.vimrc
 INST_ZSHRC=~/.zshrc
 INST_TMUX_DIR=~/.tmux
 INST_TMUX_CONF=~/.tmux.conf
 
-if [[ ! -e $INST_VIM_DIR ]]; then
+if [ ! -e $INST_VIM_DIR ]; then
     ln -s $DOTFILES_DIR/.vim $INST_VIM_DIR
 fi
 
-if [[ ! -e $INST_VIMRC ]]; then
+if [ ! -e $INST_VIMRC ]; then
     ln -s $INST_VIM_DIR/.vimrc $INST_VIMRC
 fi
 
-if [[ ! -e $INST_TMUX_DIR ]]; then
+if [ ! -e $INST_TMUX_DIR ]; then
     ln -s $DOTFILES_DIR/.tmux $INST_TMUX_DIR
 fi
 
-if [[ ! -e $INST_TMUX_CONF ]]; then
+if [ ! -e $INST_TMUX_CONF ]; then
     ln -s $INST_TMUX_DIR/.tmux.conf $INST_TMUX_CONF
 fi
 
@@ -32,16 +32,16 @@ vim +PluginInstall +qall
 
 CURR_SHELL=$SHELL
 ZSH_PATH=`which zsh`
-if [[ "$?" -eq "0" ]]; then
-    if [[ ! -d ~/.oh-my-zsh ]]; then
+if [ "$?" -eq "0" ]; then
+    if [ ! -d ~/.oh-my-zsh ]; then
         git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
     fi
 
-    if [[ ! -e $INST_ZSHRC ]]; then
+    if [ ! -e $INST_ZSHRC ]; then
         ln -s $DOTFILES_DIR/.zshrc $INST_ZSHRC
     fi
 
-    if [[ ! "${CURR_SHELL#-}" = "$ZSH_PATH" ]]; then
+    if [ ! "${CURR_SHELL#-}" = "$ZSH_PATH" ]; then
         chsh -s "$ZSH_PATH"
     fi
 fi
