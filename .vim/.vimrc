@@ -152,11 +152,15 @@ set guitablabel=%{TabpageName(1)}/%{TabpageName(2)}%{TabpageState()} "1:Full Pat
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
 
-let g:syntastic_python_checkers = ['flake8', 'pyflakes']
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_cpp_checkers = ['gcc', 'cpplint', 'cppcheck']
 let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
-let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
+if has('mac')
+  let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
+endif
 "Key Map"
 nmap <F8> :TagbarToggle<cr>
 nmap <F9> :SCCompile<cr>
