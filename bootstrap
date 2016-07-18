@@ -28,7 +28,7 @@ if [ ! -e $INST_TMUX_CONF ]; then
     ln -s $INST_TMUX_DIR/.tmux.conf $INST_TMUX_CONF
 fi
 
-vim +PluginInstall +qall
+vim +silent! +PluginInstall +qall
 
 CURR_SHELL=$SHELL
 ZSH_PATH=`which zsh`
