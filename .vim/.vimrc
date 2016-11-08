@@ -39,6 +39,7 @@ Plugin 'davidzchen/vim-bazel'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'fatih/vim-go'
 Plugin 'chase/vim-ansible-yaml'
+Plugin 'tshirtman/vim-cython'
 
 call vundle#end()
 filetype plugin indent on
