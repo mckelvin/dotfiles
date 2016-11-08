@@ -95,6 +95,7 @@ autocmd FileType css setlocal shiftwidth=2 tabstop=2
 autocmd FileType javascript setlocal smartindent ts=2 sw=2
 autocmd FileType html setlocal sw=2 ts=2
 autocmd FileType jinja setlocal sw=2 ts=2
+autocmd FileType json setlocal sw=2 ts=2
 """
 " colorscheme
 """
@@ -155,6 +156,7 @@ au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
 
 let g:syntastic_aggregate_errors = 1
+let g:syntastic_yaml_checkers = ['yamllint']
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_cpp_checkers = ['gcc', 'cpplint', 'cppcheck']
 let g:html_indent_inctags = "html,body,head,tbody"
@@ -167,3 +169,5 @@ endif
 nmap <F8> :TagbarToggle<cr>
 nmap <F9> :SCCompile<cr>
 nmap <F10> :SCCompileRun<cr>
+
+let g:ropevim_autoimport_modules = ["os", "shutil"]
