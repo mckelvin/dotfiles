@@ -20,6 +20,7 @@ Plugin 'ervandew/supertab'
 "Plugin 'spolu/dwm.vim'
 Plugin 'xuhdev/SingleCompile'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'python-rope/ropevim'
 Plugin 'Rip-Rip/clang_complete'
 
 Plugin 'airblade/vim-gitgutter'
