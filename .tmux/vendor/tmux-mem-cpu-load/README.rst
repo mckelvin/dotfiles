@@ -81,8 +81,24 @@ Install
   make install
   logout
 
-Build and Install Using `Antigen`_
--------
+Build and Install Using tpm_
+-----------------------------
+
+Include the plugin in your ``.tmux.conf``, the same file you'll set the
+configuration in, below.
+
+::
+
+  set -g @plugin 'thewtex/tmux-mem-cpu-load'
+
+Install with Package Managers
+-----------------------------
+
+* Gentoo: ``emerge tmux-mem-cpu-load``
+* Homebrew: ``brew install tmux-mem-cpu-load``
+
+Build and Install Using Antigen_
+--------------------------------
 
 Include the bundle in your ``.zshrc``
 
@@ -100,6 +116,11 @@ Edit ``$HOME/.tmux.conf`` to display the program's output in *status-left* or
   set -g status-left "#S #[fg=green,bg=black]#(tmux-mem-cpu-load --colors --interval 2)#[default]"
   set -g status-left-length 60
 
+If you installed using tpm, you must specify the full path to the
+``tmux-mem-cpu-load`` script, like below::
+
+  set -g status-right "#[fg=green]#($TMUX_PLUGIN_MANAGER_PATH/tmux-mem-cpu-load/tmux-mem-cpu-load --colors --powerline-right --interval 2)#[default]"
+
 Note that the *interval* argument to `tmux-mem-cpu-load` should be the same number
 of seconds that *status-interval* is set at.
 
@@ -116,16 +137,20 @@ The full usage::
   Available options:
   -h, --help
            Prints this help message
-  --colors
+  -c, --colors
           Use tmux colors in output
-  --powerline-right
-          Use powerline symbols throughout the output, DO NOT reset background color at the end, enables --colors
+  -p, --powerline-left
+	  Use powerline left symbols throughout the output, enables --colors
+  -q, --powerline-right
+	  Use powerline right symbols throughout the output, enables --colors
   -i <value>, --interval <value>
           Set tmux status refresh interval in seconds. Default: 1 second
   -g <value>, --graph-lines <value>
           Set how many lines should be drawn in a graph. Default: 10
   -m <value>, --mem-mode <value>
         Set memory display mode. 0: Default, 1: Free memory, 2: Usage percent.
+  -t <value>, --cpu-mode <value>
+        Set cpu % display mode. 0: Default max 100%, 1: Max 100% * number of threads.
   -a <value>, --averages-count <value>
         Set how many load-averages should be drawn. Default: 3
 
@@ -147,11 +172,15 @@ Contributions from:
 * Travil Heller <trav.heller@gmail.com>
 * Tony Narlock <tony@git-pull.com>
 * Compilenix <Compilenix@compilenix.org>
+* jodavies <jodavies1010@gmail.com>
+* `@nhdaly`_ (Nathan Daly) <nhdaly@gmail.com>
 
 
 .. _tmux: http://tmux.sourceforge.net/
 .. _CMake: http://www.cmake.org
 .. _`project homepage`: http://github.com/thewtex/tmux-mem-cpu-load
+.. _`tpm`: http://github.com/tmux-plugins/tpm
 .. _`Antigen`: https://github.com/zsh-users/antigen
 .. _`terminals with 256 color support`: http://misc.flogisoft.com/bash/tip_colors_and_formatting#terminals_compatibility
 .. _`Pawel 'l0ner' Soltys` : http://l0ner.github.io/
+.. _`@nhdaly` : http://github.com/nhdaly

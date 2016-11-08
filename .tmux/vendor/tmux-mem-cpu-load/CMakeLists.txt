@@ -24,7 +24,7 @@ endif(COMMAND cmake_policy)
 ### General Package stuff
 project(tmux-mem-cpu-load)
 set(tmux-mem-cpu-load_VERSION_MAJOR 3)
-set(tmux-mem-cpu-load_VERSION_MINOR 3)
+set(tmux-mem-cpu-load_VERSION_MINOR 4)
 set(tmux-mem-cpu-load_VERSION_PATCH 0)
 #Compute full version string
 set(tmux-mem-cpu-load_VERSION
@@ -111,8 +111,16 @@ if(BUILD_TESTING)
     COMMAND tmux-mem-cpu-load --colors
     )
 
-  add_test(NAME powerline
-    COMMAND tmux-mem-cpu-load --powerline
+  add_test(NAME colors_short
+    COMMAND tmux-mem-cpu-load -c
+    )
+
+  add_test(NAME powerline-right
+    COMMAND tmux-mem-cpu-load --powerline-right
+    )
+
+  add_test(NAME powerline-left
+    COMMAND tmux-mem-cpu-load --powerline-left
     )
 
   add_test(NAME invalid_status_interval
@@ -149,6 +157,22 @@ if(BUILD_TESTING)
 
   add_test(NAME averages_count_3
     COMMAND tmux-mem-cpu-load -a 3
+    )
+
+  add_test(NAME cpu_mode_0
+    COMMAND tmux-mem-cpu-load --cpu-mode 0
+    )
+
+  add_test(NAME cpu_mode_1
+    COMMAND tmux-mem-cpu-load --cpu-mode 1
+    )
+
+  add_test(NAME cpu_mode_short_0
+    COMMAND tmux-mem-cpu-load -t 0
+    )
+
+  add_test(NAME cpu_mode_short_1
+    COMMAND tmux-mem-cpu-load -t 1
     )
 
   set_tests_properties(usage
