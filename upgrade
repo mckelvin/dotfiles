@@ -4,14 +4,14 @@ set -x
 
 git subtree pull \
     --prefix .vim/bundle/Vundle.vim \
-    https://github.com/VundleVim/Vundle.vim.git master --squash
+    https://github.com/VundleVim/Vundle.vim.git master
 
 git subtree pull \
     --prefix .tmux \
-    https://github.com/tony/tmux-config.git master --squash
+    https://github.com/tony/tmux-config.git master
 
 git subtree pull \
     --prefix .tmux/vendor/tmux-mem-cpu-load \
-    https://github.com/thewtex/tmux-mem-cpu-load.git master --squash
+    https://github.com/thewtex/tmux-mem-cpu-load.git master
 
 vim +PluginUpdate +qall
