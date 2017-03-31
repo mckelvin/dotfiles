@@ -34,12 +34,19 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'vim-scripts/a.vim'
 Bundle "lepture/vim-jinja"
 Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 Plugin 'davidzchen/vim-bazel'
 
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'fatih/vim-go'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'tshirtman/vim-cython'
+
+Plugin 'kylef/apiblueprint.vim'
+
+Bundle 'ruanyl/vim-fixmyjs'
+
+
 
 call vundle#end()
 filetype plugin indent on
@@ -96,6 +103,7 @@ autocmd FileType javascript setlocal smartindent ts=2 sw=2
 autocmd FileType html setlocal sw=2 ts=2
 autocmd FileType jinja setlocal sw=2 ts=2
 autocmd FileType json setlocal sw=2 ts=2
+autocmd FileType apib setlocal sw=4 ts=4
 """
 " colorscheme
 """
@@ -155,13 +163,33 @@ set guitablabel=%{TabpageName(1)}/%{TabpageName(2)}%{TabpageState()} "1:Full Pat
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_loc_list_height = 5
+let g:syntastic_auto_loc_list = 0
+
+let g:syntastic_error_symbol = '❌'
+let g:syntastic_style_error_symbol = '⁉️'
+let g:syntastic_warning_symbol = '⚠️'
+let g:syntastic_style_warning_symbol = '💩'
+
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_yaml_checkers = ['yamllint']
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_cpp_checkers = ['gcc', 'cpplint', 'cppcheck']
+let g:syntastic_javascript_checkers = ['eslint']
 let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
+
+highlight link SyntasticErrorSign SignColumn
+highlight link SyntasticWarningSign SignColumn
+highlight link SyntasticStyleErrorSign SignColumn
+highlight link SyntasticStyleWarningSign SignColumn
+
 if has('mac')
   let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
 endif
