@@ -2,7 +2,9 @@
 
 This config has support for [tmux-mem-cpu-load](http://github.com/thewtex/tmux-mem-cpu-load).
 
-Prefix mapped to Ctrl-A for `screen` users.
+New to tmux? [*The Tao of tmux*](https://leanpub.com/the-tao-of-tmux) is now available on Leanpub and [Amazon Kindle](http://amzn.to/2gPfRhC). Read and browse the book for [on the web](https://leanpub.com/the-tao-of-tmux/read).
+
+Want more tmux? Check out the [libtmux](https://github.com/tony/libtmux) python library for controlling tmux, and load your code projects via YAML/JSON with [tmuxp](https://github.com/tony/tmuxp).
 
 New to tmux? Pre-order a copy of my new book *[The Tao of tmux](https://leanpub.com/the-tao-of-tmux)*. Scheduled for release this December.
 
@@ -36,43 +38,51 @@ Stats
 
 Works on Linux and OS X.
 
-  Prep ourself to download submodule:
+Prep ourself to download submodule (if you forgot `--recursive` when cloning):
 
 ```bash
 git submodule init
 ```
 
-  Download submodule:
+Download submodule:
 
 ```bash
 git submodule update
 ```
 
-  Change dir to tmux-mem-cpu-load:
+Change dir to tmux-mem-cpu-load:
 
 ```bash
 cd ~/.tmux/vendor/tmux-mem-cpu-load
 ```
 
-  General make file:
+Make ___build directory and `cd` into it:
 
 ```bash
-cmake .
+cd ~/.tmux/vendor/tmux-mem-cpu-load
 ```
 
-  Compile our binary:
+General make file:
+
+```bash
+cmake ..
+```
+
+Compile binary:
 
 ```bash
 make
 ```
 
-  Install our binary to `/usr/local/bin/tmux-mem-cpu-load`:
+Install our binary to `/usr/local/bin/tmux-mem-cpu-load`:
 
 ```bash
 sudo make install
 ```
 
-  Go home:
+(No need to do `sudo` if on OS X / macOS)
+
+Go home:
 
 ```bash
 cd ~
