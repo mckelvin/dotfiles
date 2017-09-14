@@ -45,7 +45,7 @@ Plugin 'tshirtman/vim-cython'
 Plugin 'kylef/apiblueprint.vim'
 
 Bundle 'ruanyl/vim-fixmyjs'
-
+Plugin 'mileszs/ack.vim'
 
 
 call vundle#end()
@@ -178,3 +178,11 @@ nmap <F10> :SCCompileRun<cr>
 
 let g:ropevim_autoimport_modules = ["os", "shutil"]
 set tags=./tags;/
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep --smart-case'
+  cnoreabbrev ag Ack
+  cnoreabbrev aG Ack
+  cnoreabbrev Ag Ack
+  cnoreabbrev AG Ack
+endif
