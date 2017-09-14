@@ -170,9 +170,11 @@ let g:html_indent_style1 = "inc"
 if has('mac')
   let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
 endif
+
 "Key Map"
 nmap <F8> :TagbarToggle<cr>
 nmap <F9> :SCCompile<cr>
 nmap <F10> :SCCompileRun<cr>
 
 let g:ropevim_autoimport_modules = ["os", "shutil"]
+set tags=./tags;/

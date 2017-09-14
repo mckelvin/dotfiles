@@ -1,0 +1,11 @@
+--python-kinds=-iv
+--exclude=build
+--exclude=dist
+--exclude=__pycache__
+--exclude=.git*
+--recurse=yes
+--tag-relative=yes
+--exclude=*.pyc
+--exclude=*.pyo
+--exclude=.DS_Store
+--exclude=*.md
