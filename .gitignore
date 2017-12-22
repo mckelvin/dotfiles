@@ -6,3 +6,5 @@ xmonad.o
 .vim/bundle/
 !.vim/bundle/Vundle.vim/
 *.sw[op]
+.config/nvim/autoload/plug.vim
+.config/nvim/plugged/
