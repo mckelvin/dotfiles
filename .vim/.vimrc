@@ -168,7 +168,7 @@ let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 
 if has('mac')
-  let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
+  let g:clang_library_path = '/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
 endif
 
 "Key Map"
