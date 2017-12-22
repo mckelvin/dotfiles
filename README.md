@@ -9,3 +9,14 @@
 ## How to upgrade everything?
 
     ./upgrade
+
+## Softwares need to install mannually
+
+- neovim
+- tmux
+- python3
+- git
+- pylint
+- ag
+- xcode
+- jedi
