@@ -13,9 +13,9 @@ call plug#begin(NVIM_DIR."plugged")
 Plug 'w0rp/ale' "{{{
   let b:ale_warn_about_trailing_whitespace = 1
 "}}}
-Plug 'airblade/vim-gitgutter' " {{{
+Plug 'airblade/vim-gitgutter' "{{{
   let g:gitgutter_highlight_lines = 1
-" }}}
+"}}}
 Plug 'vim-airline/vim-airline'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'skielbasa/vim-material-monokai'
@@ -39,7 +39,6 @@ if executable('ag')
   cnoreabbrev AG Ack
 endif
 "}}}
-Plug 'tmhedberg/SimpylFold', {'for': 'python'}
 call plug#end()
 
 set autochdir
@@ -62,7 +61,7 @@ if has('mouse')
   set mouse=a
 endif
 autocmd Filetype vim,javascript,css,html,jinja2,json set sw=2 ts=2 et
-autocmd Filetype python set sw=4 ts=4 et
+autocmd Filetype python set sw=4 ts=4 foldmethod=indent et
 set foldmethod=syntax
 set foldlevel=100
 set foldcolumn=2
