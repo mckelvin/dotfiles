@@ -1,4 +1,5 @@
 --python-kinds=-iv
+--c++-kinds=+p
 --exclude=build
 --exclude=dist
 --exclude=__pycache__
@@ -9,3 +10,5 @@
 --exclude=*.pyo
 --exclude=.DS_Store
 --exclude=*.md
+--fields=+iaS
+--extra=+q
