@@ -13,8 +13,9 @@ call plug#begin(NVIM_DIR."plugged")
 Plug 'w0rp/ale' "{{{
   let b:ale_warn_about_trailing_whitespace = 1
 "}}}
+Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 Plug 'airblade/vim-gitgutter' "{{{
-  let g:gitgutter_highlight_lines = 1
+  let g:gitgutter_highlight_lines = 0
 "}}}
 Plug 'vim-airline/vim-airline'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -60,7 +61,7 @@ set ts=4 sw=4 noet
 if has('mouse')
   set mouse=a
 endif
-autocmd Filetype vim,javascript,css,html,jinja2,json set sw=2 ts=2 et
+autocmd Filetype vim,javascript,css,html,jinja2,json,yaml set sw=2 ts=2 et
 autocmd Filetype python set sw=4 ts=4 foldmethod=indent et
 set foldmethod=syntax
 set foldlevel=100

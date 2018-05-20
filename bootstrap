@@ -12,7 +12,7 @@ INST_ZSHRC=~/.zshrc
 INST_TMUX_DIR=~/.tmux
 INST_TMUX_CONF=~/.tmux.conf
 CTAGS_CONF=.ctags
-CONFIG=.config
+NVIM_CONF=.config/nvim
 
 if [ ! -e $INST_VIM_DIR ]; then
     ln -s $DOTFILES_DIR/.vim $INST_VIM_DIR
@@ -34,8 +34,8 @@ if [ ! -e ~/$CTAGS_CONF ]; then
     ln -s $DOTFILES_DIR/$CTAGS_CONF ~/$CTAGS_CONF
 fi
 
-if [ ! -e ~/$CONFIG ]; then
-    ln -s $DOTFILES_DIR/$CONFIG ~/$CONFIG
+if [ ! -e ~/$NVIM_CONF ]; then
+    ln -s $DOTFILES_DIR/$NVIM_CONF ~/$NVIM_CONF
 fi
 
 vim +silent! +PluginInstall +qall

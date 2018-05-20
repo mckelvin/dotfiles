@@ -42,10 +42,17 @@ ZSH_THEME="ys"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git svn)
 source $ZSH/oh-my-zsh.sh
-
-
 export PATH=$PATH:~/.local/bin
 
 if [ -f ~/.zsh_aliases ]; then
     source ~/.zsh_aliases
+fi
+
+if [ -f /usr/local/bin/nvim ]; then
+  alias vi=/usr/local/bin/nvim
+  alias vim=/usr/local/bin/nvim
+  alias vimdiff="/usr/local/bin/nvim -d"
+  export EDITOR=/usr/local/bin/nvim
+else
+  export EDITOR=vim
 fi
