@@ -48,7 +48,7 @@ if [ -f ~/.zsh_aliases ]; then
     source ~/.zsh_aliases
 fi
 
-if [ -f /usr/local/bin/nvim ]; then
+if which nvim>/dev/null; then
   alias vi=/usr/local/bin/nvim
   alias vim=/usr/local/bin/nvim
   alias vimdiff="/usr/local/bin/nvim -d"
