@@ -49,10 +49,11 @@ if [ -f ~/.zsh_aliases ]; then
 fi
 
 if which nvim>/dev/null; then
-  alias vi=/usr/local/bin/nvim
-  alias vim=/usr/local/bin/nvim
-  alias vimdiff="/usr/local/bin/nvim -d"
-  export EDITOR=/usr/local/bin/nvim
+  NVIM_BIN=`which nvim`
+  alias vi=$NVIM_BIN
+  alias vim=$NVIM_BIN
+  alias vimdiff="$NVIM_BIN -d"
+  export EDITOR=$NVIM_BIN
 else
   export EDITOR=vim
 fi
