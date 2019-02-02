@@ -27,10 +27,20 @@ Plug 'majutsushi/tagbar' "{{{
 "}}}
 Plug 'Raimondi/delimitMate'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'roxma/nvim-completion-manager' "{{{
-  inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-"}}}
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
+" IMPORTANT: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
+
+" A list of sources: https://github.com/ncm2/ncm2/wiki
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-jedi'
+
 Plug 'mileszs/ack.vim' "{{{
 if executable('ag')
   let g:ackprg = 'ag --vimgrep --smart-case'
