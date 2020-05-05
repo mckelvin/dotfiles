@@ -77,7 +77,7 @@ endif
 autocmd BufNewFile,BufRead *.jinja2 setf jinja2
 autocmd BufNewFile,BufRead *.md setf markdown
 autocmd BufNewFile,BufRead Jenkinsfile setf groovy
-autocmd Filetype vim,javascript,css,html,jinja2,json,yaml,zsh set sw=2 ts=2 et
+autocmd Filetype vim,javascript,css,html,jinja2,json,yaml,zsh,markdown set sw=2 ts=2 et
 autocmd Filetype python,groovy set sw=4 ts=4 et
 autocmd Filetype python,yaml foldmethod=indent
 
