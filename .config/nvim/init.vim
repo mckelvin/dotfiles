@@ -85,3 +85,7 @@ autocmd Filetype python,yaml foldmethod=indent
 set foldmethod=syntax
 set foldlevel=100
 set foldcolumn=2
+
+let b:beancount_root = expand("$BEANCOUNT_ROOT")
+autocmd FileType beancount inoremap . .<c-o>:AlignCommodity<cr>
+autocmd FileType beancount inoremap <Tab> <c-x><c-o>
