@@ -6,21 +6,11 @@ DOTFILES_DIR=`dirname $0`
 cd $DOTFILES_DIR
 DOTFILES_DIR=$(pwd)
 cd -
-INST_VIM_DIR=~/.vim
-INST_VIMRC=~/.vimrc
 INST_ZSHRC=~/.zshrc
 INST_TMUX_DIR=~/.tmux
 INST_TMUX_CONF=~/.tmux.conf
 CTAGS_CONF=.ctags
 NVIM_CONF=.config/nvim
-
-if [ ! -e $INST_VIM_DIR ]; then
-    ln -s $DOTFILES_DIR/.vim $INST_VIM_DIR
-fi
-
-if [ ! -e $INST_VIMRC ]; then
-    ln -s $INST_VIM_DIR/.vimrc $INST_VIMRC
-fi
 
 if [ ! -e $INST_TMUX_DIR ]; then
     ln -s $DOTFILES_DIR/.tmux $INST_TMUX_DIR
@@ -37,8 +27,6 @@ fi
 if [ ! -e ~/$NVIM_CONF ]; then
     ln -s $DOTFILES_DIR/$NVIM_CONF ~/$NVIM_CONF
 fi
-
-vim +silent! +PluginInstall +qall
 
 CURR_SHELL=$SHELL
 ZSH_PATH=`which zsh`

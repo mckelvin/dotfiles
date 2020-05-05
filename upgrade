@@ -3,10 +3,6 @@ set -e
 set -x
 
 git subtree pull \
-    --prefix .vim/bundle/Vundle.vim \
-    https://github.com/VundleVim/Vundle.vim.git master
-
-git subtree pull \
     --prefix .tmux \
     https://github.com/tony/tmux-config.git master
 

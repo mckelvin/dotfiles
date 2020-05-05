@@ -10,59 +10,60 @@ if !filereadable(NVIM_DIR."autoload/plug.vim")
 endif
 
 call plug#begin(NVIM_DIR."plugged")
-Plug 'w0rp/ale' "{{{
+
+Plug 'w0rp/ale'
   let b:ale_warn_about_trailing_whitespace = 1
-"}}}
 Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
-Plug 'airblade/vim-gitgutter' "{{{
+Plug 'airblade/vim-gitgutter'
   let g:gitgutter_highlight_lines = 0
-"}}}
 Plug 'vim-airline/vim-airline'
+  let g:airline_theme='materialmonokai'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'skielbasa/vim-material-monokai'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'majutsushi/tagbar' "{{{
+
+Plug 'majutsushi/tagbar'
   nmap <F8> :TagbarToggle<CR>
-"}}}
 Plug 'Raimondi/delimitMate'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
 
-" enable ncm2 for all buffers
-autocmd BufEnter * call ncm2#enable_for_buffer()
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'deoplete-plugins/deoplete-jedi'
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#sources#jedi#python_path = '/usr/local/bin/python3'
 
-" IMPORTANT: :help Ncm2PopupOpen for more information
-set completeopt=noinsert,menuone,noselect
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
-" A list of sources: https://github.com/ncm2/ncm2/wiki
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-path'
-Plug 'ncm2/ncm2-jedi'
+Plug 'mileszs/ack.vim'
+  if executable('ag')
+    let g:ackprg = 'ag --vimgrep --smart-case'
+    cnoreabbrev ag Ack
+    cnoreabbrev aG Ack
+    cnoreabbrev Ag Ack
+    cnoreabbrev AG Ack
+  endif
 
-Plug 'mileszs/ack.vim' "{{{
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep --smart-case'
-  cnoreabbrev ag Ack
-  cnoreabbrev aG Ack
-  cnoreabbrev Ag Ack
-  cnoreabbrev AG Ack
-endif
-"}}}
+Plug 'vim-scripts/a.vim'
+Plug 'nathangrigg/vim-beancount'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'lepture/vim-jinja'
 call plug#end()
 
+" General
 set autochdir
 set encoding=utf8
 set number
 syntax on
+set t_Co=256
+colorscheme material-monokai
 set cursorline
 set cursorcolumn
 set background=dark
-set termguicolors
-colorscheme material-monokai
-let g:airline_theme='materialmonokai'
+if has("termguicolors")
+    set termguicolors
+endif
 
+" Indent
 filetype plugin indent on
 set autoindent
 set smartindent
@@ -71,8 +72,16 @@ set ts=4 sw=4 noet
 if has('mouse')
   set mouse=a
 endif
-autocmd Filetype vim,javascript,css,html,jinja2,json,yaml set sw=2 ts=2 et
-autocmd Filetype python set sw=4 ts=4 foldmethod=indent et
+
+" Filetype
+autocmd BufNewFile,BufRead *.jinja2 setf jinja2
+autocmd BufNewFile,BufRead *.md setf markdown
+autocmd BufNewFile,BufRead Jenkinsfile setf groovy
+autocmd Filetype vim,javascript,css,html,jinja2,json,yaml,zsh set sw=2 ts=2 et
+autocmd Filetype python,groovy set sw=4 ts=4 et
+autocmd Filetype python,yaml foldmethod=indent
+
+" Fold
 set foldmethod=syntax
 set foldlevel=100
 set foldcolumn=2
